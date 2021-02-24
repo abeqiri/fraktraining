@@ -3,17 +3,13 @@
 		<div class="card_left">
 			<div class="card_datails">
 				<h1 [style.background-color]="selectedMovie.title | movieBackground">{{selectedMovie.title}}</h1>
+        <h4>{{selectedMovie.slug}}</h4>
 				<div class="card_cat">
-					<p class="PG">PG - 13</p>
-					<p class="year">{{selectedMovie.year | date}}</p>
+					<p class="PG">Year: {{selectedMovie.year}}</p>
 					<p class="genre"></p>
-					<p class="time">Minutes: {{selectedMovie.mins}}</p>
+					<p class="PG">Minutes: {{selectedMovie.mins}}</p>
 				</div>
 				<p class="disc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima tempora autem fugit beatae et expedita cumque unde architecto eveniet, qui illum repellat </p>
-			<div class="social-btn">
-				<!-- GET-->
-
-			</div>
 			</div>
 		</div>
 		<div class="card_right">
@@ -33,11 +29,11 @@
 		<div class="card_left">
 			<div class="card_datails">
 				<h1 [style.background-color]="movie.title | movieBackground">{{movie.title}}</h1>
+        <h4>{{movie.slug}}</h4>
 				<div class="card_cat">
-					<p class="PG">PG - 13</p>
-					<p class="year">{{movie.year | date}}</p>
+					<p class="PG">Year: {{movie.year}}</p>
 					<p class="genre"></p>
-					<p class="time">Minutes: {{movie.mins}}</p>
+					<p class="PG">Minutes: {{movie.mins}}</p>
 				</div>
 				<p class="disc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima tempora autem fugit beatae et expedita cumque unde architecto eveniet, qui illum repellat </p>
 			<div class="social-btn">

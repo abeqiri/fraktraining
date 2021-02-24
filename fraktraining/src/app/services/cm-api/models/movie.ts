@@ -3,7 +3,7 @@ export interface Movie {
   slug: string;
   image: any;
   director: string;
-  year: Date;
+  year: number;
   country: string;
   mins: number;
 }

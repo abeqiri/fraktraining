@@ -1,29 +1,24 @@
 <div class="container">
-  <div class="panel panel-default">
-      <div class="panel-body">
-          <table class="table-latitude">
-               <caption>All movies</caption>
-               <input type="search"
-                  class="form-control"
-                  placeholder="Please enter search term"
-                  [formControl]="searchField">
-                <thead>
-                    <th (click)="sort(sortFieldEnum.Title)">Title</th>
-                    <th>Director</th>
-                    <th (click)="sort(sortFieldEnum.Year)">Year</th>
-                    <th (click)="sort(sortFieldEnum.Mins)">Mins</th>
-                    <th></th>
-              </thead>
-              <tbody>
-                  <tr *ngFor="let movie of movies" [style.background-color]="movie.title | movieBackground">
-                      <th>{{ movie.title }}</th>
-                      <th>{{ movie.director }}</th>
-                      <th>{{ movie.year | date }}</th>
-                      <th>{{ movie.mins }}</th>
-                      <th><a [routerLink]="['/', movie.slug]">View</a></th>
-                  </tr>
-              </tbody>
-          </table>
-      </div>
-  </div>
+  <h2>All movies</h2>
+  <ul class="responsive-table">
+    <input type="search"
+    class="form-control"
+    placeholder="Please enter search term"
+    [formControl]="searchField">
+    <hr/>
+    <li class="table-header">
+      <div class="col col-4" (click)="sort(sortFieldEnum.Title)">Title</div>
+      <div class="col col-3">Director</div>
+      <div class="col col-2" (click)="sort(sortFieldEnum.Year)">Year</div>
+      <div class="col col-2" (click)="sort(sortFieldEnum.Mins)">Mins</div>
+      <div class="col col-2"></div>
+    </li>
+    <li class="table-row" *ngFor="let movie of movies">
+      <div class="col col-4" [style.background-color]="movie.title | movieBackground">{{movie.title}}</div>
+      <div class="col col-3">{{movie.director}}</div>
+      <div class="col col-2">{{movie.year}}</div>
+      <div class="col col-2">{{movie.mins}}   </div>
+      <div class="col col-2"><a [routerLink]="['/', movie.slug]">View</a></div>
+    </li>
+  </ul>
 </div>

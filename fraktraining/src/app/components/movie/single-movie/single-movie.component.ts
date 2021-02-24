@@ -32,5 +32,6 @@ export class SingleMovieComponent implements OnInit {
   selectArticle(movie: Movie) {
     this.selectedMovie = movie;
     this.selectedMovieSlug = movie.slug;
+    document.documentElement.scrollTop = 0;
   }
 }

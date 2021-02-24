@@ -8,17 +8,12 @@ import { Movie } from './models/movie';
   providedIn: 'root'
 })
 export class ApiClientService {
-  private CONTENTFUL_SPACE_ID: string;
-  private CONTENTFUL_ACCESS_TOKEN: string;
   private contentfulClient: ContentfulClientApi;
 
   constructor(protected http: HttpClient) {
-      this.CONTENTFUL_SPACE_ID = environment.contentful.CONTENTFUL_SPACE_ID;
-      this.CONTENTFUL_ACCESS_TOKEN = environment.contentful.CONTENTFUL_ACCESS_TOKEN;
-
       this.contentfulClient = createClient({
-        space: this.CONTENTFUL_SPACE_ID,
-        accessToken: this.CONTENTFUL_ACCESS_TOKEN
+        space:  environment.contentful.CONTENTFUL_SPACE_ID,
+        accessToken: environment.contentful.CONTENTFUL_ACCESS_TOKEN
       });
   }
 

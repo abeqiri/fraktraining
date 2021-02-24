@@ -73,8 +73,8 @@ export class MoviesComponent implements OnInit {
   private sortByYear(): void {
     this.yearSortOrder = this.yearSortOrder == SortOrder.Ascending ? SortOrder.Descending : SortOrder.Ascending;
     this.movies = this.movies.sort((firstMovie, secondMovie) => {
-      const firstMovieYear = firstMovie.year.getUTCFullYear;
-      const secondMovieYear = secondMovie.year.getUTCFullYear;
+      const firstMovieYear = firstMovie.year;
+      const secondMovieYear = secondMovie.year;
       if (firstMovieYear < secondMovieYear) {
         return this.yearSortOrder == SortOrder.Ascending ? -1 : 1;
       }
