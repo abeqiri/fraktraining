@@ -8,14 +8,9 @@ import { MovieService } from 'src/app/services/cm-api/movie.service';
   styleUrls: ['./movie.component.scss']
 })
 export class MovieComponent implements OnInit {
-  public movies: Movie[] = [];
 
   constructor(private movieService: MovieService) { }
 
-  ngOnInit(): void {
-    this.movieService.getAllMovies().then((response) => {
-      this.movies = response.movies
-    });
-  }
+  ngOnInit(): void {}
 
 }
