@@ -1,16 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { MovieComponent } from './components/movie/movie.component';
-import { SingleMovieComponent } from './components/movie/single-movie/single-movie.component';
 
 const routes: Routes = [
   {
-    component: MovieComponent,
-    path: ''
-  },
-  {
-    component: SingleMovieComponent,
-    path: ':slug'
+    path: '',
+    loadChildren: () => import ('../app/components/movie/movie.module').then(module => module.MovieModule)
   }
 ];
 

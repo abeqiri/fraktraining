@@ -9,29 +9,27 @@ import { MovieService } from 'src/app/services/cm-api/movie.service';
   styleUrls: ['./single-movie.component.scss']
 })
 export class SingleMovieComponent implements OnInit {
-  selectedMovieSlug: string | null = '';
-  selectedMovie: Movie | null;
+  selectedMovieSlug: string = '';
+  selectedMovie: Movie;
 
   constructor(private route: ActivatedRoute, private movieService: MovieService) {
   }
 
   ngOnInit(): void {
-    this.selectedMovieSlug = this.route.snapshot.paramMap.get('slug');
-    this.selectedMovie = this.movieService.fetchedMovies.find(x => x.slug === this.selectedMovieSlug);
-    if (!this.selectedMovie) {
-      this.movieService.getAllMovies().then(() => {
-        this.selectedMovie = this.movieService.fetchedMovies.find(x => x.slug === this.selectedMovieSlug);
-      });
-    }
+    this.route.paramMap.subscribe(value => {
+      this.selectedMovieSlug = value.get('slug');
+      this.selectedMovie = this.movieService.getMovieBySlug(this.selectedMovieSlug);
+
+      if (!this.selectedMovie) {
+        this.movieService.getAllMovies().then(() => {
+          this.selectedMovie = this.movieService.getMovieBySlug(this.selectedMovieSlug);
+        });
+      }
+      document.documentElement.scrollTop = 0;
+    })
   }
 
   get allMoviesExceptSelected(): Movie[] {
-    return this.movieService.fetchedMovies.filter(x => x.slug !== this.selectedMovieSlug);
-  }
-
-  selectArticle(movie: Movie) {
-    this.selectedMovie = movie;
-    this.selectedMovieSlug = movie.slug;
-    document.documentElement.scrollTop = 0;
+    return this.movieService.getAllMoviesExcept(this.selectedMovieSlug);
   }
 }

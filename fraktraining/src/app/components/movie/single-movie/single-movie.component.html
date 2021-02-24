@@ -25,8 +25,8 @@
 <hr/>
 
 <h3 style="text-align: center;">Other movies</h3>
-<div class="wrapper" *ngFor="let movie of allMoviesExceptSelected">
-	<div class="main_card" (click)="selectArticle(movie)" tooltip="{{movie.slug}}" delay="500" placement="top" [showAlways]=true>
+<a [routerLink]="['/', movie.slug]" class="wrapper" *ngFor="let movie of allMoviesExceptSelected">
+	<div class="main_card" tooltip="{{movie.slug}}" delay="500" placement="top" [showAlways]=true>
 		<div class="card_left">
 			<div class="card_datails">
 				<h1 [style.background-color]="movie.title | movieBackground">{{movie.title}}</h1>
@@ -50,5 +50,5 @@
 
 			</div>
 		</div>
-	</div>
+	</a>
 
