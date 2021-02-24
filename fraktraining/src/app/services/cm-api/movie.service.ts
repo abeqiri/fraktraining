@@ -26,7 +26,7 @@ export class MovieService {
             year: x.fields.year
           }
           return tempMovie;
-        })
+        });
         resolve({
           movies: this.fetchedMovies
         })

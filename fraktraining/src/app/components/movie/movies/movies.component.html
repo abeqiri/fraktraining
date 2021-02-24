@@ -13,8 +13,8 @@
       <div class="col col-2" (click)="sort(sortFieldEnum.Mins)">Mins</div>
       <div class="col col-2"></div>
     </li>
-    <li class="table-row" *ngFor="let movie of movies">
-      <div class="col col-4" [style.background-color]="movie.title | movieBackground">{{movie.title}}</div>
+    <li class="table-row" [style.background-color]="movie.title | movieBackground" *ngFor="let movie of movies">
+      <div class="col col-4">{{movie.title}}</div>
       <div class="col col-3">{{movie.director}}</div>
       <div class="col col-2">{{movie.year}}</div>
       <div class="col col-2">{{movie.mins}}   </div>
