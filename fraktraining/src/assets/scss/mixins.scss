@@ -1,0 +1,22 @@
+@mixin transition($target, $duration) {
+  -webkit-transition: $target $duration ease-in-out;
+  -moz-transition: $target $duration ease-in-out;
+  -o-transition: $target $duration ease-in-out;
+  transition: $target $duration ease-in-out;
+}
+@mixin translateX($x) {
+  -webkit-transform: translateX($x);
+  -moz-transform: translateX($x);
+  -ms-transform: translateX($x);
+  -o-transform: translateX($x);
+  transform: translateX($x);
+  will-change: trasnform;
+}
+@mixin translateY($x) {
+  -webkit-transform: translateY($x);
+  -moz-transform: translateY($x);
+  -ms-transform: translateY($x);
+  -o-transform: translateY($x);
+  transform: translateY($x);
+  will-change: trasnform;
+}

@@ -1,7 +1,7 @@
 export interface Movie {
   title: string;
   slug: string;
-  image: File;
+  image: any;
   director: string;
   year: Date;
   country: string;

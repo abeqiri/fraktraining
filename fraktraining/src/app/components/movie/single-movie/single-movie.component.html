@@ -1,0 +1,33 @@
+<div class="cards" *ngIf="selectedMovie">
+  <div></div>
+  <article class="card" style="border: 1px solid black;" >
+      <header>
+          <h2 [style.background-color]="selectedMovie.title | movieBackground">{{ selectedMovie.title }}</h2>
+      </header>
+      <img [src]="selectedMovie.image.fields.file.url" alt="movie.image.name">
+      <div class="content">
+          <p>Director/s: {{ selectedMovie.director }}</p>
+          <p>Country: {{ selectedMovie.country }}</p>
+          <p>Mins: {{ selectedMovie.mins }}</p>
+          <p>Date: {{ selectedMovie.year }}</p>
+      </div>
+
+  </article>
+</div>
+<br/>
+<br/>
+<hr/>
+<h4>Other movies</h4>
+<div class="cards">
+    <article class="card" *ngFor="let movie of allMoviesExceptSelected" style="border: 1px solid black;" (click)="selectArticle(movie)"
+      tooltip="{{movie.slug}}" delay="500" placement="top" [showAlways]=true>
+        <header>
+            <h2 [style.background-color]="movie.title | movieBackground">{{ movie.title }}</h2>
+        </header>
+        <img [src]="movie.image.fields.file.url" alt="movie.image.name">
+        <div class="content">
+            <p>Director/s: {{ movie.director }}</p>
+        </div>
+
+    </article>
+</div>

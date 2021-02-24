@@ -4,7 +4,9 @@ import { ContentfulClientApi, createClient, Entry, EntryCollection } from 'conte
 import { environment } from 'src/environments/environment';
 import { Movie } from './models/movie';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class ApiClientService {
   private CONTENTFUL_SPACE_ID: string;
   private CONTENTFUL_ACCESS_TOKEN: string;

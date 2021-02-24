@@ -5,11 +5,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ApiClientService } from './services/cm-api';
 import { HttpClientModule } from '@angular/common/http';
-import { MovieService } from './services/cm-api/movie.service';
+import { MovieComponent } from './components/movie/movie.component';
+import { SingleMovieComponent } from './components/movie/single-movie/single-movie.component';
+import { MoviesComponent } from './components/movie/movies/movies.component';
+import { TooltipDirective } from './directives/tooltip.directive';
+import { MovieBackgroundPipe } from './pipes/movie-background.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MovieComponent,
+    SingleMovieComponent,
+    MovieComponent,
+    MoviesComponent,
+    TooltipDirective,
+    MovieBackgroundPipe
   ],
   imports: [
     BrowserModule,
@@ -17,8 +27,7 @@ import { MovieService } from './services/cm-api/movie.service';
     HttpClientModule
   ],
   providers: [
-    ApiClientService,
-    MovieService
+    ApiClientService
   ],
   bootstrap: [AppComponent]
 })
