@@ -9,7 +9,7 @@ import { MovieService } from 'src/app/services/cm-api/movie.service';
 })
 export class MovieComponent implements OnInit {
 
-  constructor(private movieService: MovieService) { }
+  constructor() { }
 
   ngOnInit(): void {}
 
