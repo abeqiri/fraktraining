@@ -1,33 +1,57 @@
-<div class="cards" *ngIf="selectedMovie">
-  <div></div>
-  <article class="card" style="border: 1px solid black;" >
-      <header>
-          <h2 [style.background-color]="selectedMovie.title | movieBackground">{{ selectedMovie.title }}</h2>
-      </header>
-      <img [src]="selectedMovie.image.fields.file.url" alt="movie.image.name">
-      <div class="content">
-          <p>Director/s: {{ selectedMovie.director }}</p>
-          <p>Country: {{ selectedMovie.country }}</p>
-          <p>Mins: {{ selectedMovie.mins }}</p>
-          <p>Date: {{ selectedMovie.year }}</p>
-      </div>
+<div class="wrapper" *ngIf="selectedMovie">
+	<div class="main_card" tooltip="{{selectedMovie.slug}}" delay="500" placement="top" [showAlways]=true>
+		<div class="card_left">
+			<div class="card_datails">
+				<h1 [style.background-color]="selectedMovie.title | movieBackground">{{selectedMovie.title}}</h1>
+				<div class="card_cat">
+					<p class="PG">PG - 13</p>
+					<p class="year">{{selectedMovie.year | date}}</p>
+					<p class="genre"></p>
+					<p class="time">Minutes: {{selectedMovie.mins}}</p>
+				</div>
+				<p class="disc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima tempora autem fugit beatae et expedita cumque unde architecto eveniet, qui illum repellat </p>
+			<div class="social-btn">
+				<!-- GET-->
 
-  </article>
-</div>
+			</div>
+			</div>
+		</div>
+		<div class="card_right">
+			<div class="img_container">
+				<img [src]="selectedMovie.image.fields.file.url" alt="movie.image.name" alt="" />
+				</div>
+			</div>
+		</div>
+	</div>
 <br/>
 <br/>
 <hr/>
-<h4>Other movies</h4>
-<div class="cards">
-    <article class="card" *ngFor="let movie of allMoviesExceptSelected" style="border: 1px solid black;" (click)="selectArticle(movie)"
-      tooltip="{{movie.slug}}" delay="500" placement="top" [showAlways]=true>
-        <header>
-            <h2 [style.background-color]="movie.title | movieBackground">{{ movie.title }}</h2>
-        </header>
-        <img [src]="movie.image.fields.file.url" alt="movie.image.name">
-        <div class="content">
-            <p>Director/s: {{ movie.director }}</p>
-        </div>
 
-    </article>
-</div>
+<h4>Other movies</h4>
+<div class="wrapper" *ngFor="let movie of allMoviesExceptSelected">
+	<div class="main_card" (click)="selectArticle(movie)" tooltip="{{movie.slug}}" delay="500" placement="top" [showAlways]=true>
+		<div class="card_left">
+			<div class="card_datails">
+				<h1 [style.background-color]="movie.title | movieBackground">{{movie.title}}</h1>
+				<div class="card_cat">
+					<p class="PG">PG - 13</p>
+					<p class="year">{{movie.year | date}}</p>
+					<p class="genre"></p>
+					<p class="time">Minutes: {{movie.mins}}</p>
+				</div>
+				<p class="disc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima tempora autem fugit beatae et expedita cumque unde architecto eveniet, qui illum repellat </p>
+			<div class="social-btn">
+				<!-- GET-->
+
+			</div>
+			</div>
+		</div>
+		<div class="card_right">
+			<div class="img_container">
+				<img [src]="movie.image.fields.file.url" alt="movie.image.name" alt="" />
+				</div>
+
+			</div>
+		</div>
+	</div>
+

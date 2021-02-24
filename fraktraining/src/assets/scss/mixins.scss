@@ -1,8 +1,18 @@
-@mixin transition($target, $duration) {
-  -webkit-transition: $target $duration ease-in-out;
-  -moz-transition: $target $duration ease-in-out;
-  -o-transition: $target $duration ease-in-out;
-  transition: $target $duration ease-in-out;
+@mixin translate($x, $y) {
+  -webkit-transform: translate($x, $y);
+  -moz-transform: translate($x, $y);
+  -ms-transform: translate($x, $y);
+  -o-transform: translate($x, $y);
+  transform: translate($x, $y);
+  will-change: trasnform;
+}
+@mixin translateY($x) {
+  -webkit-transform: translateY($x);
+  -moz-transform: translateY($x);
+  -ms-transform: translateY($x);
+  -o-transform: translateY($x);
+  transform: translateY($x);
+  will-change: trasnform;
 }
 @mixin translateX($x) {
   -webkit-transform: translateX($x);
@@ -12,11 +22,55 @@
   transform: translateX($x);
   will-change: trasnform;
 }
-@mixin translateY($x) {
-  -webkit-transform: translateY($x);
-  -moz-transform: translateY($x);
-  -ms-transform: translateY($x);
-  -o-transform: translateY($x);
-  transform: translateY($x);
+
+@mixin transition($target, $duration) {
+  -webkit-transition: $target $duration ease-in-out;
+  -moz-transition: $target $duration ease-in-out;
+  -o-transition: $target $duration ease-in-out;
+  transition: $target $duration ease-in-out;
+}
+@mixin transition_linear($target, $duration) {
+  -webkit-transition: $target $duration linear;
+  -moz-transition: $target $duration linear;
+  -o-transition: $target $duration linear;
+  transition: $target $duration linear;
+}
+@mixin double-transition($target, $second-target, $duration){
+  -webkit-transition: $target $duration ease-in-out, $second-target $duration ease-in-out;
+  -moz-transition: $target $duration ease-in-out, $second-target $duration ease-in-out;
+  -o-transition: $target $duration ease-in-out, $second-target $duration ease-in-out;
+  transition: $target $duration ease-in-out, $second-target $duration ease-in-out;
+}
+
+@mixin translate-rotate($x, $y, $rotate) {
+  -webkit-transform: translate($x, $y) rotate($rotate);
+  -moz-transform: translate($x, $y) rotate($rotate);
+  -ms-transform: translate($x, $y) rotate($rotate);
+  -o-transform: translate($x, $y) rotate($rotate);
+  transform: translate($x, $y) rotate($rotate);
+  will-change: trasnform;
+}
+@mixin rotate($rotate) {
+  -webkit-transform: rotate($rotate);
+  -moz-transform: rotate($rotate);
+  -ms-transform: rotate($rotate);
+  -o-transform: rotate($rotate);
+  transform: rotate($rotate);
+  will-change: trasnform;
+}
+@mixin rotateX($rotate) {
+  -webkit-transform: rotateX($rotate);
+  -moz-transform: rotateX($rotate);
+  -ms-transform: rotateX($rotate);
+  -o-transform: rotateX($rotate);
+  transform: rotateX($rotate);
+  will-change: trasnform;
+}
+@mixin translate-rotate-scale($x, $y, $rotate, $scale) {
+  -webkit-transform: translate($x, $y) rotate($rotate) scale($scale, $scale);
+  -moz-transform: translate($x, $y) rotate($rotate) scale($scale, $scale);
+  -ms-transform: translate($x, $y) rotate($rotate) scale($scale, $scale);
+  -o-transform: translate($x, $y) rotate($rotate) scale($scale, $scale);
+  transform: translate($x, $y) rotate($rotate) scale($scale, $scale);
   will-change: trasnform;
 }

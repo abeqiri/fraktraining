@@ -10,6 +10,7 @@ import { SingleMovieComponent } from './components/movie/single-movie/single-mov
 import { MoviesComponent } from './components/movie/movies/movies.component';
 import { TooltipDirective } from './directives/tooltip.directive';
 import { MovieBackgroundPipe } from './pipes/movie-background.pipe';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { MovieBackgroundPipe } from './pipes/movie-background.pipe';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
     ApiClientService

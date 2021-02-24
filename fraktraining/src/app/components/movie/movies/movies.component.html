@@ -3,6 +3,10 @@
       <div class="panel-body">
           <table class="table-latitude">
                <caption>All movies</caption>
+               <input type="search"
+                  class="form-control"
+                  placeholder="Please enter search term"
+                  [formControl]="searchField">
                 <thead>
                     <th (click)="sort(sortFieldEnum.Title)">Title</th>
                     <th>Director</th>

@@ -13,18 +13,15 @@ export class SingleMovieComponent implements OnInit {
   selectedMovie: Movie | null;
 
   constructor(private route: ActivatedRoute, private movieService: MovieService) {
-    this.selectedMovie = null;
   }
 
   ngOnInit(): void {
     this.selectedMovieSlug = this.route.snapshot.paramMap.get('slug');
-
-    if (this.movieService.fetchedMovies.length === 0) {
+    this.selectedMovie = this.movieService.fetchedMovies.find(x => x.slug === this.selectedMovieSlug);
+    if (!this.selectedMovie) {
       this.movieService.getAllMovies().then(() => {
         this.selectedMovie = this.movieService.fetchedMovies.find(x => x.slug === this.selectedMovieSlug);
       });
-    } else {
-      this.selectedMovie = this.movieService.fetchedMovies.find(x => x.slug === this.selectedMovieSlug);
     }
   }
 

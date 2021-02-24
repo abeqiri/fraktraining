@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { SortField } from 'src/app/core/enums/sort-field.enum';
 import { SortOrder } from 'src/app/core/enums/sort-order.enum';
 import { Movie } from 'src/app/services/cm-api/models/movie';
@@ -14,6 +15,7 @@ export class MoviesComponent implements OnInit {
   public yearSortOrder: SortOrder = SortOrder.Ascending;
   public minsSortOrder: SortOrder = SortOrder.Ascending;
   public sortField: SortField = SortField.Title;
+  searchField: FormControl = new FormControl();
 
   public movies: Movie[] = [];
 
@@ -23,6 +25,12 @@ export class MoviesComponent implements OnInit {
     this.movieService.getAllMovies().then((response) => {
       this.movies = response.movies.sort((a, b) => a.title.localeCompare(b.title));
     });
+
+      this.searchField.valueChanges
+        .subscribe((searchTerm: string) => {
+          this.movies = this.movieService.fetchedMovies.filter(x => x.title.trim().toLowerCase().includes(searchTerm.toLowerCase())
+                                                                    || x.director.toLowerCase().includes(searchTerm.toLowerCase()));
+        });
   }
 
   public sort(sortField: SortField) {
@@ -43,8 +51,8 @@ export class MoviesComponent implements OnInit {
   private sortByTitle(): void {
     this.titleSortOrder = this.titleSortOrder == SortOrder.Ascending ? SortOrder.Descending : SortOrder.Ascending;
     this.movies = this.movies.sort((firstMovie, secondMovie) => {
-      const titleA = firstMovie.title.toUpperCase();
-      const titleB = secondMovie.title.toUpperCase();
+      const titleA = firstMovie.title.trim().toUpperCase();
+      const titleB = secondMovie.title.trim().toUpperCase();
       if (titleA < titleB) {
         return this.titleSortOrder === SortOrder.Ascending ? -1 : 1;
       }
