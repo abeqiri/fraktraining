@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Movie } from 'src/app/services/cm-api/models/movie';
-import { MovieService } from 'src/app/services/cm-api/movie.service';
 
 @Component({
   selector: 'app-movie',
